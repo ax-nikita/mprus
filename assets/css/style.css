@@ -71,6 +71,7 @@ header .title-container {
   justify-content: center;
   flex-grow: 1;
   gap: 0.61rem;
+  width: 100%;
 }
 header .title-container__logo {
   height: 1.4rem;
