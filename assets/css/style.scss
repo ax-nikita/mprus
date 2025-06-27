@@ -7,7 +7,7 @@
 }
 
 html {
-  font-size: 14px;
+  font-size: 3.684vw;
 }
 
 body {
@@ -17,6 +17,7 @@ body {
   font-size: 14px;
   line-height: 1.4;
   --theme-header-height: 4.28rem;
+  --theme-header-height-half: 2.14rem;
   padding-top: var(--theme-header-height);
   padding-bottom: var(--theme-header-height);
   letter-spacing: -0.041em;
@@ -51,6 +52,7 @@ header {
   background: #1F29370D;
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
+  box-shadow: inset 0 var(--theme-header-height-half) var(--theme-header-height-half) #F9FAFB;
 
   button.back {
     position: absolute;
@@ -75,6 +77,7 @@ header {
     flex-grow: 1;
     gap: 0.61rem;
     width: 100%;
+
     &__logo {
       height: 1.4rem;
       width: min-content;
@@ -475,12 +478,171 @@ nav.bottom-nav {
   }
 }
 
+/* profile */
+
+.profile-header {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1rem 1.05rem;
+  z-index: 10;
+  .profile-banner {
+    width: 100%;
+    height: 12.7rem;
+    object-fit: cover;
+    background: linear-gradient(90deg, #00a8f3 0%, #7b00f3 100%);
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .profile-avatar {
+    position: absolute;
+    bottom: -0.85rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    width: 9.1rem;
+    height: 9.1rem;
+    object-fit: cover;
+    background: #fff;
+
+  }
+
+  .profile-banner-upload {
+    position: absolute;
+    right: 2.25rem;
+    top: 2.25rem;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+.profile-info {
+  text-align: left; // выравнивание по левому краю
+  padding: 0.4rem 1.05rem;
+  min-height: 20rem;
+  .profile-name {
+    font-weight: 700;
+    font-size: 1.42rem;
+    letter-spacing: -0.11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.55rem;
+  }
+
+  .profile-role-username {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    justify-content: center;
+    letter-spacing: -0.08rem;
+    .profile-role {
+      color: #F54B8B; // красный для роли "Продавец"
+      font-weight: 600;
+    }
+
+    .profile-username {
+      color: #6b7280;
+      letter-spacing: -0.08rem;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+  }
+
+  .profile-description {
+    font-size: 0.95rem;
+    color: #374151;
+    margin-bottom: 1rem;
+    margin-top: 0.35rem;
+  }
+
+  .profile-more {
+    @extend .link-more; // использует существующий стиль ссылки "Подробнее"
+    color: #6b7280;
+    font-size: 1rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-score {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    font-weight: 700;
+    font-size: 1.71rem;
+    color: #374151;
+    margin-top: 0.3rem;
+
+    &__score {
+      letter-spacing: -0.13rem;
+    }
+
+    &__growth {
+      color: #22c55e;
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
+      margin-left: 0.7rem;
+      letter-spacing: -0.07rem;
+    }
+  }
+
+  .profile-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 0.85rem;
+    padding-top: 1.53rem;
+    padding-bottom: 1.15rem;
+    .number {
+      font-size: 1.14rem;
+      margin-bottom: 0.2rem;
+    }
+  }
+}
+
+.profile-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0rem;
+  margin-bottom: 0.3rem;
+
+  button {
+    background: none;
+    border: none;
+    font-weight: 500;
+    font-size: 1.14rem;
+    padding: 0.5rem 0.7rem;
+    padding-bottom: 0.9rem;
+    letter-spacing: -0.05rem;
+    cursor: pointer;
+    color: #6b7280;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+
+    &.active,
+    &:focus {
+      color: #1e1e1e;
+      border-color: #2563eb;
+      outline: none;
+    }
+
+    &:hover:not(.active) {
+      color: #2563eb;
+    }
+  }
+}
+
+/* Сверка */
+
+
 img.sverka {
   position: fixed;
   z-index: 9999;
   top: 0;
   pointer-events: none;
-  left:0;
+  left: 0;
   right: 0;
   width: 100%;
   opacity: 0.4;

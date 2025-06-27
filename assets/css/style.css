@@ -7,7 +7,7 @@
 }
 
 html {
-  font-size: 14px;
+  font-size: 3.684vw;
 }
 
 body {
@@ -17,6 +17,7 @@ body {
   font-size: 14px;
   line-height: 1.4;
   --theme-header-height: 4.28rem;
+  --theme-header-height-half: 2.14rem;
   padding-top: var(--theme-header-height);
   padding-bottom: var(--theme-header-height);
   letter-spacing: -0.041em;
@@ -50,6 +51,7 @@ header {
   background: rgba(31, 41, 55, 0.0509803922);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
+  box-shadow: inset 0 var(--theme-header-height-half) var(--theme-header-height-half) #F9FAFB;
 }
 header button.back {
   position: absolute;
@@ -202,7 +204,7 @@ header .title-container__subtitle {
 }
 
 /* Ссылка узнать подробнее */
-.link-more {
+.link-more, .profile-info .profile-more {
   font-size: 1.125rem;
   font-weight: 500;
   color: #2563EB;
@@ -262,7 +264,7 @@ header .title-container__subtitle {
   font-size: 1.14rem;
   line-height: 1.13em;
 }
-.news .link-more {
+.news .link-more, .news .profile-info .profile-more, .profile-info .news .profile-more {
   margin-top: 1.2rem;
   letter-spacing: -0.06em;
 }
@@ -365,7 +367,7 @@ header .title-container__subtitle {
 .post .post-content a:not(.link-more):hover {
   text-decoration-color: #1e40af;
 }
-.post .post-content .link-more {
+.post .post-content .link-more, .post .post-content .profile-info .profile-more, .profile-info .post .post-content .profile-more {
   margin-top: 0.64rem;
   text-decoration: none;
 }
@@ -432,6 +434,146 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
   stroke-width: 2.5;
 }
 
+/* profile */
+.profile-header {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1rem 1.05rem;
+  z-index: 10;
+}
+.profile-header .profile-banner {
+  width: 100%;
+  height: 12.7rem;
+  object-fit: cover;
+  background: linear-gradient(90deg, #00a8f3 0%, #7b00f3 100%);
+  border-radius: 1rem 1rem 0 0;
+}
+.profile-header .profile-avatar {
+  position: absolute;
+  bottom: -0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  width: 9.1rem;
+  height: 9.1rem;
+  object-fit: cover;
+  background: #fff;
+}
+.profile-header .profile-banner-upload {
+  position: absolute;
+  right: 2.25rem;
+  top: 2.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.profile-info {
+  text-align: left;
+  padding: 0.4rem 1.05rem;
+  min-height: 20rem;
+}
+.profile-info .profile-name {
+  font-weight: 700;
+  font-size: 1.42rem;
+  letter-spacing: -0.11rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.55rem;
+}
+.profile-info .profile-role-username {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  justify-content: center;
+  letter-spacing: -0.08rem;
+}
+.profile-info .profile-role-username .profile-role {
+  color: #F54B8B;
+  font-weight: 600;
+}
+.profile-info .profile-role-username .profile-username {
+  color: #6b7280;
+  letter-spacing: -0.08rem;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.profile-info .profile-description {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 1rem;
+  margin-top: 0.35rem;
+}
+.profile-info .profile-more {
+  color: #6b7280;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.profile-info .profile-score {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-weight: 700;
+  font-size: 1.71rem;
+  color: #374151;
+  margin-top: 0.3rem;
+}
+.profile-info .profile-score__score {
+  letter-spacing: -0.13rem;
+}
+.profile-info .profile-score__growth {
+  color: #22c55e;
+  font-weight: 600;
+  font-size: 1rem;
+  user-select: none;
+  margin-left: 0.7rem;
+  letter-spacing: -0.07rem;
+}
+.profile-info .profile-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 0.85rem;
+  padding-top: 1.53rem;
+  padding-bottom: 1.15rem;
+}
+.profile-info .profile-stats .number {
+  font-size: 1.14rem;
+  margin-bottom: 0.2rem;
+}
+
+.profile-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0rem;
+  margin-bottom: 0.3rem;
+}
+.profile-tabs button {
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1.14rem;
+  padding: 0.5rem 0.7rem;
+  padding-bottom: 0.9rem;
+  letter-spacing: -0.05rem;
+  cursor: pointer;
+  color: #6b7280;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.profile-tabs button.active, .profile-tabs button:focus {
+  color: #1e1e1e;
+  border-color: #2563eb;
+  outline: none;
+}
+.profile-tabs button:hover:not(.active) {
+  color: #2563eb;
+}
+
+/* Сверка */
 img.sverka {
   position: fixed;
   z-index: 9999;
