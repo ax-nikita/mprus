@@ -162,7 +162,7 @@ header {
     margin-right: 0.4rem;
 
     .label {
-      font-weight: 600;
+      font-weight: 400;
       display: flex;
       align-items: center;
       gap: 0.25rem;
@@ -171,15 +171,10 @@ header {
     }
 
     .value {
-      font-weight: 700;
+      font-weight: 500;
       font-size: 1rem;
-      color: #1e1e1e; // основной цвет цифр
+      color: #6b7280; // основной цвет цифр
       letter-spacing: -0.09rem;
-
-      &.green,
-      &.red {
-        color: #1e1e1e; // цифры не окрашиваем
-      }
     }
   }
 

@@ -153,7 +153,7 @@ header .title-container__subtitle {
   margin-right: 0.4rem;
 }
 .rates__item .label {
-  font-weight: 600;
+  font-weight: 400;
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -161,13 +161,10 @@ header .title-container__subtitle {
   line-height: 0.85rem;
 }
 .rates__item .value {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1rem;
-  color: #1e1e1e;
+  color: #6b7280;
   letter-spacing: -0.09rem;
-}
-.rates__item .value.green, .rates__item .value.red {
-  color: #1e1e1e;
 }
 .rates .icon-up {
   width: 0.75rem;
