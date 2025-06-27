@@ -45,6 +45,7 @@ header {
   right: 0;
   width: 100%;
   max-width: 100vw;
+  z-index: 99;
   height: var(--theme-header-height);
   background: rgba(31, 41, 55, 0.0509803922);
   backdrop-filter: blur(7px);
