@@ -58,6 +58,46 @@ button {
   padding: 0;
 }
 
+/* Чекбоксы */
+/* Универсальный стиль для кастомных чекбоксов */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  position: relative;
+  /* Квадрат чекбокса справа */
+  /* Состояние checked — синий фон и белая галочка */
+}
+.custom-checkbox input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.custom-checkbox > span::after {
+  content: "";
+  display: block;
+  width: 1.61rem;
+  height: 1.61rem;
+  border-radius: 0.33rem;
+  background: var(--color-bg-transparent-black);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+}
+.custom-checkbox input[type=checkbox]:checked + span::after {
+  background: var(--color-accent-blue-primary);
+  border-color: var(--color-accent-blue-primary);
+  background-image: url("data:image/svg+xml,%3csvg fill='none' stroke='%23fff' stroke-width='3' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5 13l4 4L19 7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .app {
   margin: 0 auto;
   background: var(--color-bg-primary);
@@ -68,6 +108,10 @@ button {
 .btn {
   color: var(--color-text-inverse);
   background: var(--color-accent-blue-primary);
+}
+.btn.white {
+  background: var(--color-bg-primary);
+  color: var(--color-accent-blue-primary);
 }
 
 .social-btn {
@@ -405,6 +449,7 @@ header .title-container {
   align-items: center;
   gap: 0.58rem;
   margin-bottom: 0.75rem;
+  justify-content: space-between;
 }
 .post .post-header .menu-btn {
   background: none;
@@ -718,6 +763,7 @@ form button {
   flex-grow: 1;
   gap: 0.61rem;
   width: 100%;
+  max-width: 100vw;
   margin-top: 4.68rem;
   padding-bottom: 6.14rem;
 }
@@ -773,6 +819,392 @@ form button {
   justify-content: center;
   padding-top: 0.48rem;
   gap: 0.47rem;
+}
+
+/* Настройки */
+/* Обертка для блока настроек, чтобы добавить внутренние отступы */
+.settings-wrapper {
+  padding: 1.15rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Общие стили секций настроек */
+.settings-section {
+  background: var(--color-bg-white);
+  border-radius: 1rem;
+  padding: 1.5rem 1.3rem 2rem;
+  margin-bottom: 2rem;
+  /* Контейнер для строки с почтой и паролем */
+  /* Связанные аккаунты */
+  /* Нижние кнопки */
+}
+.settings-section form {
+  display: flex;
+  flex-direction: column;
+  /* Кнопки */
+  /* fieldset для чекбоксов в уведомлениях */
+}
+.settings-section form label {
+  font-weight: 500;
+  font-size: 1.14rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.55rem;
+  user-select: none;
+}
+.settings-section form input[type=text],
+.settings-section form input[type=email],
+.settings-section form input[type=password],
+.settings-section form select,
+.settings-section form textarea,
+.settings-section form .readonly-field {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  padding: 1.11rem 1.14rem;
+  border-radius: 0.28rem;
+  border: none;
+  background: var(--color-bg-transparent-black);
+  color: var(--color-text-primary);
+  margin-bottom: 1.14rem;
+  transition: border-color 0.3s ease;
+}
+.settings-section form input[type=text]:focus,
+.settings-section form input[type=email]:focus,
+.settings-section form input[type=password]:focus,
+.settings-section form select:focus,
+.settings-section form textarea:focus,
+.settings-section form .readonly-field:focus {
+  outline: none;
+  border-color: var(--color-accent-blue-primary);
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+}
+.settings-section form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+.settings-section form .btn {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+.settings-section form .btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-accent-blue-primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 0.25rem;
+}
+.settings-section form .btn-link.logout {
+  color: var(--color-text-secondary);
+}
+.settings-section form .btn-link.delete-account {
+  color: var(--color-accent-red);
+}
+.settings-section form .btn-link:hover, .settings-section form .btn-link:focus {
+  opacity: 0.8;
+  outline: none;
+}
+.settings-section form fieldset {
+  border: none;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+.settings-section form fieldset legend {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+.settings-section form fieldset label {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+.settings-section form fieldset label input[type=checkbox] {
+  margin-right: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+.settings-section h2 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.settings-section .settings-item {
+  margin-bottom: 1.5rem;
+}
+.settings-section .settings-item label {
+  display: block;
+  font-weight: 500;
+  font-size: 1.14rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+.settings-section .settings-item .readonly-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 1.11rem 1.14rem;
+  border-radius: 0.28rem;
+  border: none;
+  background: var(--color-bg-transparent-black);
+  color: var(--color-text-primary);
+  margin-bottom: 1.14rem;
+  transition: border-color 0.3s ease;
+  user-select: none;
+}
+.settings-section .settings-item .readonly-field .field-action {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+.settings-section .settings-item .readonly-field .field-action:hover, .settings-section .settings-item .readonly-field .field-action:focus {
+  color: var(--color-text-primary);
+  outline: none;
+}
+.settings-section .linked-accounts {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+}
+.settings-section .linked-accounts .social-btn {
+  background: var(--color-bg-transparent-black);
+}
+.settings-section .settings-footer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  bottom: var(--theme-header-height);
+}
+.settings-section .settings-footer button.logout-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  user-select: none;
+}
+.settings-section .settings-footer button.logout-btn:hover, .settings-section .settings-footer button.logout-btn:focus {
+  text-decoration: underline;
+  outline: none;
+}
+.settings-section .settings-footer button.delete-btn {
+  background: none;
+  border: none;
+  color: var(--color-accent-red);
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  user-select: none;
+}
+.settings-section .settings-footer button.delete-btn:hover, .settings-section .settings-footer button.delete-btn:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Меню настроек */
+.settings-menu {
+  background: var(--color-bg-white);
+  border-radius: 1rem;
+  padding: 1.5rem 1.2rem;
+  margin-bottom: 2rem;
+}
+.settings-menu h1 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.14rem;
+  margin-bottom: 0.7rem;
+  color: var(--color-text-primary);
+}
+.settings-menu .settings-form button[type=submit] {
+  padding: 1.2rem 1rem;
+  position: fixed;
+  width: 22.57rem;
+  margin-bottom: 0.85rem;
+  left: var(--theme-popup-padding);
+  right: var(--theme-popup-padding);
+  bottom: var(--theme-header-height);
+}
+.settings-menu .settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.71rem;
+}
+.settings-menu .settings-nav a.settings-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0 1.55rem;
+  border-radius: 0.75rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.settings-menu .settings-nav a.settings-nav__item:nth-child(1) {
+  background: var(--color-bg-transparent-black);
+  padding: 1.14rem 1.55rem;
+}
+.settings-menu .settings-nav a.settings-nav__item svg {
+  flex-shrink: 0;
+  width: 1.71rem;
+  height: 1.71rem;
+}
+.settings-menu .settings-nav__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  letter-spacing: -0.07rem;
+}
+.settings-menu .settings-nav__title {
+  font-weight: 600;
+  font-size: 1.14rem;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+.settings-menu .settings-nav__desc {
+  color: var(--color-text-secondary);
+  line-height: 1.2;
+}
+
+.notification-group {
+  display: grid;
+  margin-top: 2rem;
+}
+.notification-group h2 {
+  text-align: left;
+  font-size: 1.14rem;
+  margin-bottom: 1.05rem;
+}
+.notification-group label {
+  font-size: 1.14rem;
+  margin-bottom: 1.25rem;
+}
+.notification-group label:nth-last-child(1) {
+  margin-bottom: 0.2rem;
+}
+
+/* Аватар загрузка */
+.avatar-upload {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.avatar-upload .avatar-placeholder {
+  width: 9.14rem;
+  height: 9.14rem;
+  border-radius: 50%;
+  background: var(--color-bg-transparent-black);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.avatar-upload .avatar-placeholder svg {
+  height: 4.5rem;
+  width: 4.5rem;
+}
+.avatar-upload > button.btn {
+  font-size: 1rem;
+  width: auto;
+  align-self: center;
+}
+
+/* Темы в ленте */
+.topics-list {
+  background: var(--color-bg-transparent-black);
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+  width: 100%;
+}
+.topics-list .topic-tag {
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: default;
+  white-space: nowrap;
+}
+.topics-list .topic-tag:nth-child(1) {
+  background: #F5E6F0;
+  color: #7B4F7D;
+}
+.topics-list .topic-tag:nth-child(2) {
+  background: #DCE3F2;
+  color: #4A5B8A;
+}
+.topics-list .topic-add-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+.topics-list .topic-add-btn:hover, .topics-list .topic-add-btn:focus {
+  color: var(--color-accent-blue-primary);
+  outline: none;
+}
+
+/* Социальные иконки */
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.social-icons img {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  filter: grayscale(0.7);
+  transition: filter 0.3s ease;
+}
+.social-icons img:hover, .social-icons img:focus {
+  filter: none;
+  outline: none;
 }
 
 /* Сверка */
