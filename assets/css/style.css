@@ -6,6 +6,31 @@
   padding: 0;
 }
 
+:root {
+  /* Основные цвета текста */
+  --color-text-primary: #1F2937; /* основной текст */
+  --color-text-secondary: #1F293780; /* вторичный текст, сдержанный */
+  --color-text-inverse: #ffffff; /* белый (для кнопок и фона) */
+  /* Фоновые цвета */
+  --color-bg-primary: #F9FAFB; /* основной светлый фон */
+  --color-bg-white: #ffffff; /* белый фон для карточек и блоков */
+  --color-bg-transparent-black: #1f29370d; /* легкий прозрачный черный (для хедера и футера) */
+  /* Акцентные синие цвета */
+  --color-accent-blue-primary: #2563EB; /* основной акцентный синий (кнопки, ссылки) */
+  /* Акценты зеленого цвета */
+  --color-accent-green: #379841; /* зеленый для положительных значений, статусов */
+  /* Акценты красного цвета */
+  --color-accent-red: #FF0202; /* красный для негативных значений, ошибок */
+  --color-accent-pink: #F54B8B; /* розовый/красный для роли "Продавец" */
+  /* Иконки и штрихи */
+  --color-icon-stroke-primary: var(--color-accent-blue-primary); /* синий штрих */
+  --color-icon-stroke-secondary: var(--color-text-primary); /* серый штрих */
+  --color-icon-stroke-tertiary: #6b7280; /* темно-серый штрих */
+  /* Тени и разделители */
+  --color-shadow-light: rgba(0, 0, 0, 0.05); /* легкая тень */
+  --color-border-light: #e0e7ff; /* светлая граница */
+}
+
 html {
   font-size: 3.684vw;
 }
@@ -13,7 +38,7 @@ html {
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  color: #1e1e1e;
+  color: var(--color-text-primary);
   font-size: 14px;
   line-height: 1.4;
   --theme-header-height: 4.28rem;
@@ -21,7 +46,7 @@ body {
   padding-top: var(--theme-header-height);
   padding-bottom: var(--theme-header-height);
   letter-spacing: -0.041em;
-  background: #F9FAFB;
+  background: var(--color-bg-primary);
 }
 
 button {
@@ -31,19 +56,19 @@ button {
 
 .app {
   margin: 0 auto;
-  background: #F9FAFB;
+  background: var(--color-bg-primary);
   display: flex;
   flex-direction: column;
 }
 
 .btn {
-  color: white;
-  background: #2563EB;
+  color: var(--color-text-inverse);
+  background: var(--color-accent-blue-primary);
 }
 
 .social-btn {
   border: none;
-  background: white;
+  background: var(--color-bg-white);
   padding: 0.4rem;
   border-radius: 50%;
   --theme-social-size: 2.57rem;
@@ -63,13 +88,13 @@ button {
 .logo-box__slash {
   font-weight: 500;
   font-size: 1.5rem;
-  color: #3b82f6;
+  color: var(--color-accent-blue-primary);
   line-height: 1;
 }
 .logo-box__subtitle {
   font-weight: 400;
   font-size: 0.71rem;
-  color: #6b7280;
+  color: var(--color-text-secondary);
   line-height: 1;
   margin-top: 0.2rem;
   letter-spacing: -0.04rem;
@@ -89,10 +114,10 @@ header {
   max-width: 100vw;
   z-index: 99;
   height: var(--theme-header-height);
-  background: rgba(31, 41, 55, 0.0509803922);
+  background: var(--color-bg-transparent-black);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
-  box-shadow: inset 0 var(--theme-header-height-half) var(--theme-header-height-half) #F9FAFB;
+  box-shadow: inset 0 var(--theme-header-height-half) var(--theme-header-height-half) var(--color-bg-primary);
 }
 header button.back {
   position: absolute;
@@ -100,7 +125,7 @@ header button.back {
   background: none;
   font-size: 1.75rem;
   line-height: 1;
-  color: #111827;
+  color: var(--color-text-primary);
   cursor: pointer;
   padding: 0 0.75rem 0 0;
   user-select: none;
@@ -124,7 +149,7 @@ header .title-container {
   gap: 0.28rem;
   height: 4.71rem;
   padding: 1.1rem 1.15rem;
-  background: #f8f9fa;
+  background: var(--color-bg-white);
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -141,25 +166,25 @@ header .title-container {
   font-size: 1rem;
   border-radius: 12px;
   border: none;
-  background: #fff;
-  color: #6b7280;
+  background: var(--color-bg-white);
+  color: var(--color-text-secondary);
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
   transition: all 0.2s ease;
 }
 .categories button.active {
-  color: #111827;
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 .categories .icon-popular {
-  stroke: #3b82f6;
+  stroke: var(--color-icon-stroke-primary);
   stroke-width: 2;
 }
 .categories .icon-hot,
 .categories .icon-fresh,
 .categories .icon-expert {
-  stroke: #9ca3af;
+  stroke: var(--color-icon-stroke-secondary);
   stroke-width: 2;
 }
 
@@ -170,7 +195,7 @@ header .title-container {
   justify-content: start;
   padding: 0 1.15rem;
   font-size: 0.71rem;
-  color: #1e1e1e;
+  color: var(--color-text-primary);
 }
 .rates__item {
   display: flex;
@@ -184,24 +209,24 @@ header .title-container {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  color: #6b7280;
+  color: var(--color-text-secondary);
   line-height: 0.85rem;
 }
 .rates__item .value {
   font-weight: 500;
   font-size: 1rem;
-  color: #6b7280;
+  color: var(--color-text-secondary);
   letter-spacing: -0.09rem;
 }
 .rates .icon-up {
   width: 0.75rem;
   height: 0.75rem;
-  stroke: #22c55e;
+  stroke: var(--color-accent-green);
 }
 .rates .icon-down {
   width: 0.75rem;
   height: 0.75rem;
-  stroke: #ef4444;
+  stroke: var(--color-accent-red);
 }
 .rates__filter {
   position: absolute;
@@ -220,14 +245,14 @@ header .title-container {
 .rates__filter button svg {
   width: 1.7rem;
   height: 1.7rem;
-  stroke: #6b7280;
+  stroke: var(--color-text-secondary);
   stroke-width: 2;
 }
 
 /* Блоки с иконкой и свгешкой */
 .common-svg-btn-block {
   text-decoration: none;
-  color: #170600;
+  color: var(--color-text-primary);
   display: flex;
   width: 100%;
   padding: 0.7rem 0.6rem;
@@ -246,24 +271,24 @@ header .title-container {
 .link-more, .profile-info .profile-more {
   font-size: 1.125rem;
   font-weight: 500;
-  color: #2563EB;
+  color: var(--color-accent-blue-primary);
   cursor: pointer;
   display: inline-block;
 }
 
 /* Новости дня */
 .news {
-  background: #fff;
+  background: var(--color-bg-white);
   margin: 1.15rem 1.15rem;
   border-radius: 0.75rem;
   padding: 1rem 1.13rem;
-  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0.0625rem 0.125rem var(--color-shadow-light);
 }
 .news h2 {
   font-weight: 400;
   font-size: 1.125rem;
   margin: 0 0 0 0;
-  color: #111827;
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -277,12 +302,12 @@ header .title-container {
   font-weight: 400;
   font-size: 1.02rem;
   margin-right: 0.13rem;
-  color: #3b82f6;
+  color: var(--color-accent-blue-primary);
 }
 .news p {
   font-weight: 400;
   font-size: 1rem;
-  color: #374151;
+  color: var(--color-text-primary);
   margin: 0.5rem 0 0.5rem 0;
   white-space: pre-line;
   line-height: 1.45em;
@@ -291,7 +316,7 @@ header .title-container {
 .news p a {
   font-weight: 600;
   font-size: 0.9375rem;
-  color: #2563eb;
+  color: var(--color-accent-blue-primary);
   text-decoration: none;
   cursor: pointer;
 }
@@ -325,7 +350,7 @@ header .title-container {
 .author-info .author-name {
   font-weight: 400;
   font-size: 1rem;
-  color: #111827;
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -344,11 +369,11 @@ header .title-container {
 }
 .author-info > div .status {
   font-weight: 600;
-  color: #22c55e;
+  color: var(--color-accent-green);
 }
 .author-info > div .time {
   font-weight: 400;
-  color: #6b7280;
+  color: var(--color-text-secondary);
 }
 .author-info.medium {
   --avatar-size: 3.75rem;
@@ -367,7 +392,7 @@ header .title-container {
 
 /* Пост */
 .post {
-  background: #fff;
+  background: var(--color-bg-white);
   margin: 0 1rem 1.15rem;
   border-radius: 0.75rem;
   padding: 1rem 1rem 1.25rem;
@@ -395,7 +420,7 @@ header .title-container {
   font-weight: 700;
   font-size: 1.42rem;
   line-height: 1.71rem;
-  color: #111827;
+  color: var(--color-text-primary);
   margin-top: 0.35rem;
   letter-spacing: -0.06em;
   margin-bottom: 0.57rem;
@@ -403,7 +428,7 @@ header .title-container {
 .post .post-content p {
   font-weight: 400;
   font-size: 1rem;
-  color: #374151;
+  color: var(--color-text-primary);
   margin-bottom: 0.57rem;
   line-height: 1.55rem;
   letter-spacing: 0;
@@ -411,20 +436,20 @@ header .title-container {
 .post .post-content p a {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: #2563eb;
+  text-decoration-color: var(--color-accent-blue-primary);
   font-weight: 400;
 }
 .post .post-content p a:hover {
-  text-decoration-color: #1e40af;
+  text-decoration-color: var(--color-accent-blue-primary);
 }
 .post .post-content a:not(.link-more) {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: #2563eb;
+  text-decoration-color: var(--color-accent-blue-primary);
   font-weight: 400;
 }
 .post .post-content a:not(.link-more):hover {
-  text-decoration-color: #1e40af;
+  text-decoration-color: var(--color-accent-blue-primary);
 }
 .post .post-content .link-more, .post .post-content .profile-info .profile-more, .profile-info .post .post-content .profile-more {
   margin-top: 0.64rem;
@@ -442,7 +467,7 @@ header .title-container {
   transform: translateX(-50%);
   width: 100%;
   height: var(--theme-header-height);
-  background: rgba(31, 41, 55, 0.0509803922);
+  background: var(--color-bg-transparent-black);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   z-index: 100;
@@ -459,13 +484,13 @@ nav.bottom-nav button {
   background: none;
   border: none;
   cursor: pointer;
-  color: #6b7280;
+  color: var(--color-text-secondary);
   font-size: 1.5rem;
   user-select: none;
   transition: color 0.2s ease;
 }
 nav.bottom-nav button.active, nav.bottom-nav button:hover {
-  color: #2563eb;
+  color: var(--color-accent-blue-primary);
 }
 
 /* Плавающая кнопка */
@@ -476,11 +501,11 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 50%;
-  background: #2563eb;
+  background: var(--color-accent-blue-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--color-text-inverse);
   font-size: 1.75rem;
   cursor: pointer;
   user-select: none;
@@ -489,7 +514,7 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
 .fab svg {
   width: 1.5rem;
   height: 1.5rem;
-  stroke: #fff;
+  stroke: var(--color-text-inverse);
   stroke-width: 2.5;
 }
 
@@ -516,7 +541,7 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
   width: 9.1rem;
   height: 9.1rem;
   object-fit: cover;
-  background: #fff;
+  background: var(--color-bg-white);
 }
 .profile-header .profile-banner-upload {
   position: absolute;
@@ -549,23 +574,23 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
   letter-spacing: -0.08rem;
 }
 .profile-info .profile-role-username .profile-role {
-  color: #F54B8B;
+  color: var(--color-accent-pink);
   font-weight: 600;
 }
 .profile-info .profile-role-username .profile-username {
-  color: #6b7280;
+  color: var(--color-text-secondary);
   letter-spacing: -0.08rem;
   font-size: 1rem;
   white-space: nowrap;
 }
 .profile-info .profile-description {
   font-size: 0.95rem;
-  color: #374151;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   margin-top: 0.35rem;
 }
 .profile-info .profile-more {
-  color: #6b7280;
+  color: var(--color-text-secondary);
   font-size: 1rem;
   display: inline-block;
   margin-bottom: 0.5rem;
@@ -576,14 +601,14 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
   gap: 0.1rem;
   font-weight: 700;
   font-size: 1.71rem;
-  color: #374151;
+  color: var(--color-text-primary);
   margin-top: 0.3rem;
 }
 .profile-info .profile-score__score {
   letter-spacing: -0.13rem;
 }
 .profile-info .profile-score__growth {
-  color: #22c55e;
+  color: var(--color-accent-green);
   font-weight: 600;
   font-size: 1rem;
   user-select: none;
@@ -619,17 +644,17 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
   padding-bottom: 0.9rem;
   letter-spacing: -0.05rem;
   cursor: pointer;
-  color: #6b7280;
+  color: var(--color-text-secondary);
   border-bottom: 2px solid transparent;
   transition: color 0.3s, border-color 0.3s;
 }
 .profile-tabs button.active, .profile-tabs button:focus {
-  color: #1e1e1e;
-  border-color: #2563eb;
+  color: var(--color-text-primary);
+  border-color: var(--color-accent-blue-primary);
   outline: none;
 }
 .profile-tabs button:hover:not(.active) {
-  color: #2563eb;
+  color: var(--color-accent-blue-primary);
 }
 
 /* попап */
@@ -639,7 +664,7 @@ nav.bottom-nav button.active, nav.bottom-nav button:hover {
   right: 0;
   bottom: -100%;
   padding-bottom: var(--theme-header-height);
-  background: #F9FAFB;
+  background: var(--color-bg-primary);
   height: 42.685rem;
   border-radius: 1.5rem;
   transition: 0.5s;
@@ -709,7 +734,7 @@ form button {
 }
 .popup .edit-profile-link a {
   text-decoration: none;
-  color: #000000;
+  color: var(--color-text-primary);
 }
 .popup .popup-setting-list {
   height: 100%;
@@ -721,7 +746,7 @@ form button {
 .popup .popup-setting-list .common-svg-btn-block {
   position: relative;
   bottom: 1.5rem;
-  border-bottom: 1px solid #E0E7FF;
+  border-bottom: 1px solid var(--color-border-light);
 }
 .popup .popup-social-text {
   margin-top: 2rem;
@@ -734,10 +759,10 @@ form button {
   text-align: center;
   width: 100%;
   margin-left: var(--theme-popup-padding-r);
-  color: rgba(31, 41, 55, 0.5019607843);
+  color: var(--color-text-secondary);
 }
 .popup .popup-register .register-link {
-  color: #1F2937;
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 .popup .popup-social-icons {
