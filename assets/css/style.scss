@@ -764,9 +764,12 @@ form {
 }
 
 .popup {
-  padding: 1.7rem;
+
   position: relative;
   height: 100%;
+  --theme-popup-padding: 1.7rem;
+  --theme-popup-padding-r: -1.7rem;
+  padding: var(--theme-popup-padding);
 
   .title-container {
     display: flex;
@@ -825,7 +828,7 @@ form {
     bottom: 1.5em;
     text-align: center;
     width: 100%;
-    margin-left: -2.85rem;
+    margin-left: var(--theme-popup-padding-r);
     color: #1F293780;
 
     .register-link {
