@@ -31,6 +31,10 @@
   --color-border-light: #e0e7ff; /* светлая граница */
 }
 
+svg {
+  display: block;
+}
+
 html {
   font-size: 3.684vw;
 }
