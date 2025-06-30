@@ -153,7 +153,6 @@ header .title-container {
   gap: 0.28rem;
   height: 4.71rem;
   padding: 1.1rem 1.15rem;
-  background: var(--color-bg-white);
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
